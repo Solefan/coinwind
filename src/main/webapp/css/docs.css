@@ -161,20 +161,31 @@ h4 code {
     background: transparent !important;
 }
 
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:visited,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover
 .bs-docs-nav .navbar-nav > li > a:hover,
 .bs-docs-nav .navbar-nav > li > a:visited,
 .bs-docs-nav .navbar-nav > .active > a,
 .bs-docs-nav .navbar-nav > .active > a:hover {
     color: #463265;
-    background-color: transparent;
+    background: transparent !important;
 }
 
-.dropdown > a:hover,
-.dropdown > a:visited,
-.dropdown > .active > a,
-.dropdown > .active > a:hover {
-    color: #463265;
-    background-color: transparent;
+#language {
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    text-align: center;
+    min-width: 50px;
+    font-size: 12px;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    margin-top: 0;
+    border-radius: 10px;
 }
 
 .bs-docs-nav .navbar-toggle .icon-bar {
@@ -2080,9 +2091,12 @@ h1[id] {
     padding: 12% 0;
 }
 
-
 .nav-opacity {
     background: rgba(0, 0, 0, 0);
+}
+
+.dropdown-opacity {
+    background: rgba(0, 0, 0, 1);
 }
 
 @media (max-width: 990px) {
@@ -2112,8 +2126,4 @@ h1[id] {
     .bs-docs-footer p {
         font-size: 10px;
     }
-}
-
-.dropdown-menu {
-    background: rgba(0, 0, 0, 0.5);
 }

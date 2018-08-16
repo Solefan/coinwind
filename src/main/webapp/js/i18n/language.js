@@ -84,10 +84,9 @@ var execI18n = function () {
                 // 存到缓存中
                 cookie.set("userLanguage", navLanguage, 30);
             }
-            ;
         } else {
-            console.log("not navigator");
-            return false;
+            navLanguage = i18nLanguage;
+            cookie.set("userLanguage", navLanguage, 30);
         }
     }
     /* 需要引入 i18n 文件*/
@@ -121,7 +120,6 @@ var execI18n = function () {
                 if (!selectAttr) {
                     selectAttr = "value";
                 }
-                ;
                 $(this).attr(selectAttr, $.i18n.prop($(this).attr('selectname')));
             });
             console.log("写入完毕");
@@ -132,19 +130,24 @@ var execI18n = function () {
 
 /*页面执行加载执行*/
 $(function () {
-
     /*执行I18n翻译*/
     execI18n();
 
-    /*将语言选择默认选中缓存中的值*/
-    $("#language option[value=" + i18nLanguage + "]").attr("selected", true);
+    $(".dropdown-menu a").each(function() {
+        var lang = $(this).attr('value');
+        if (lang == i18nLanguage) {
+            $('#language').html($(this).html());
+            $('#language').attr("value", $(this).attr('value'));
+        }
+    });
 
-    /* 选择语言 */
-    $("#language").bind('change', function () {
-        var language = $(this).children('option:selected').val()
-        console.log(language);
-        cookie.set("userLanguage", language, 30);
-        location.reload();
+    $(".dropdown-menu a").click(function() {
+        var lang = $(this).attr('value');
+        var ori = $('#language').attr('value');
+        if (ori != lang) {
+            cookie.set("userLanguage", lang, 30);
+            setTimeout("location.reload();", 100);
+        }
     });
 
 });

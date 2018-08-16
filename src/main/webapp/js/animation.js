@@ -8,6 +8,7 @@ $(document).ready(function () {
     var scoll = $(window).scrollTop();
     if (scoll <= 0) {
         $('.navbar').addClass('nav-opacity');
+        $('.dropdown-menu').addClass('dropdown-opacity');
         $('.navbar-nav a').css({ "color": "#fff"});
     }
 
@@ -47,9 +48,11 @@ $(document).ready(function () {
         var index = $('#index').height();
         if (scoll <= 0) {
             $('.navbar').addClass('nav-opacity');
+            $('.dropdown-menu').addClass('dropdown-opacity');
             $('.navbar-nav a').css({ "color": "#fff"});
         } else {
             $('.navbar').removeClass('nav-opacity');
+            $('.dropdown-menu').removeClass('dropdown-opacity');
             $('.navbar-nav a').css({ "color": "#463265"});
         }
 
