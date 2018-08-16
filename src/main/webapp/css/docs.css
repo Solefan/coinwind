@@ -1833,6 +1833,8 @@ h1[id] {
     font-size: 16px;
     font-weight: 400;
     margin-top: 50px;
+    text-align:justify;
+    text-justify:inter-ideograph;
 }
 
 .right img {
